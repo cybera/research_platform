@@ -12,12 +12,16 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+#These are the environment variables required for nova create vm function
+OS_USERNAME = os.environ.get('OS_USERNAME')
+OS_PASSWROD = os.environ.get('OS_USERNAME')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hbru*zi&8d%03*n^3sn*=8#dbr$ph5io0nfm#=px4fgkgu*gt9'
+SECRET_KEY = 'your secret key here'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,7 +84,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-
-PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
-TEMPLATE_DIRS = (PROJECT_PATH + '/templates/',)
 STATIC_URL = '/static/'
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+TEMPLATE_DIRS = (PROJECT_PATH + '/templates/',)
